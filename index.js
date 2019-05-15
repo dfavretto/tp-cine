@@ -1,0 +1,3 @@
+abstrac class index {
+    
+}
