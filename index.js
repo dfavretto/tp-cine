@@ -1,3 +1,0 @@
-abstrac class index {
-    
-}
