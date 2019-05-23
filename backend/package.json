@@ -1,0 +1,30 @@
+{
+  "name": "tp-cine-backend",
+  "version": "1.0.0",
+  "description": "Trabajo practico para Taller de Programacion 2",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfavretto/tp-cine.git"
+  },
+  "author": "David Favretto",
+  "contributors": [
+    {
+      "name": "Jeremias Hassan"
+    },
+    {
+      "name": "Joan Rotbard"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dfavretto/tp-cine/issues"
+  },
+  "homepage": "https://github.com/dfavretto/tp-cine#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
