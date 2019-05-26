@@ -1,6 +1,6 @@
 const express = require('express');
-const funcionRouter = require('./funcion/funcionRouter');
-const peliculaRouter = require('./pelicula/peliculaRouter');
+const funcionRouter = require('./routes/funcionRouter');
+const peliculaRouter = require('./routes/peliculaRouter');
 
 const app = express();
 
