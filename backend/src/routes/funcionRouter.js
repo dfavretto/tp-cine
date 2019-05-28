@@ -8,8 +8,6 @@ const daoFactory = require('../data/daoFactory')
 
 const router = express.Router()
 
-const baseURI = '/api/pelicula'
+const baseURI = '/api/funcion'
 
 
-
-module.exports = router

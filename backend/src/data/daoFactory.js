@@ -1,8 +1,8 @@
 const peliculaDAO_Arr = require('./daoPeliculaArray');
 const peliculaDAO_DB = require('./daoPeliculaDB');
-const peliculaDAO_Arr = require('./daoFuncionArray');
-const peliculaDAO_DB = require('./daoFuncionDB');
-const { mode } = require('../config');
+const funcionDAO_Arr = require('./daoFuncionArray');
+const funcionDAO_DB = require('./daoFuncionDB');
+const { mode } = require('../db/config');
 
 function getPeliculasDAO() {
     switch (mode) {
@@ -21,6 +21,6 @@ function getFuncionsDAO() {
 }
 
 module.exports = {
-    getPeliculaDAO,
+    getPeliculasDAO,
     getFuncionsDAO
 };
