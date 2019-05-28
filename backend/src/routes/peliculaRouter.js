@@ -32,32 +32,39 @@ async function _handleGetAll(req, res) {
 
 async function _handleGetWithQS(req, res) {
     try {
-        if (isNaN(req.query.edadMin) || isNaN(req.query.edadMax))
-            throw { status: 400, descripcion: 'las edades provistas no son numéricas' }
+        // if (isNaN(req.query.edadMin) || isNaN(req.query.edadMax))
+        //     throw { status: 400, descripcion: 'las edades provistas no son numéricas' }
 
-        if (req.query.edadMin < 0 || req.query.edadMax < 0)
-            throw { status: 400, descripcion: 'las edades provistas no son positivas' }
+        // if (req.query.edadMin < 0 || req.query.edadMax < 0)
+        //     throw { status: 400, descripcion: 'las edades provistas no son positivas' }
 
-        const estudiantesDAO = daoFactory.getPeliculasDAO()
-        const result = await estudiantesDAO.getByAge(req.query.edadMin, req.query.edadMax)
-        res.json(result)
+        // const estudiantesDAO = daoFactory.getPeliculasDAO()
+        // const result = await estudiantesDAO.getByAge(req.query.edadMin, req.query.edadMax)
+        // res.json(result)
+
+        const peliculaDAO = daoFactory.getPeliculasDAO();
+        const result = await peliculaDAO.getByTitulo(req.query.titulo);
+        res.json(result);
     } catch (err) {
         res.status(err.status).json(err)
     }
 }
 
-router.get('/:dni', async (req, res) => {
+router.get('/:titulo', async (req, res) => {
     console.log(`GETTING: ${baseURI}${req.url}`)
 
     try {
-        if (isNaN(req.params.dni))
-            throw { status: 400, descripcion: 'el dni provisto no es un número o es inválido' }
+        // if (isNaN(req.params.dni))
+        //     throw { status: 400, descripcion: 'el dni provisto no es un número o es inválido' }
 
-        const estudiantesDAO = daoFactory.getPeliculasDAO()
-        const resultado = await estudiantesDAO.getByDni(req.params.dni)
+        // const estudiantesDAO = daoFactory.getPeliculasDAO()
+        // const resultado = await estudiantesDAO.getByDni(req.params.dni)
+
+        const peliculaDAO = daoFactory.getPeliculasDAO();
+        const resultado = await peliculaDAO.getByTitulo(req.params.titulo);
 
         if (!resultado)
-            throw { status: 404, descripcion: 'estudiante no encontrado' }
+            throw { status: 404, descripcion: 'pelicula no encontrada' }
 
         res.json(resultado)
     } catch (err) {
