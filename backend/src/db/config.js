@@ -5,11 +5,10 @@ const dbConfigs = {
     development: {
         client: 'mssql',
         connection: {
-            server: '127.0.0.1',
-            host: '127.0.0.1',
-            user: 'ORT_TP2_USER',
-            password: 'ORT_TP2_PASS',
-            database: 'testDB'
+            host: 'localhost',
+            user: 'sa',
+            password: 'sa',
+            database: 'TP2'     
         }
     },
     ort: {
