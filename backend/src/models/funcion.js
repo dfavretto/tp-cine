@@ -1,7 +1,7 @@
 export class Funcion {
-    constructor(horario, pelicula, sala) {
+    constructor(horario, peliculaId, salaId) {
         this.horario = horario;
-        this.pelicula = pelicula;
-        this.sala = sala;
+        this.peliculaId = peliculaId;
+        this.salaId = salaId;
     }
 }
