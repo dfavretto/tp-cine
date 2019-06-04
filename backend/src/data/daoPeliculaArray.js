@@ -1,82 +1,82 @@
 const Pelicula = require('../models/pelicula').Pelicula;
 
 const peliculas = [
-new Pelicula('Pelicula1', '35', 'M'),
-new Pelicula('Pelicula2', '45', 'T'),
-new Pelicula('Pelicula3', '50', 'RP'),
-new Pelicula('Pelicula4', '64', 'T'),
-new Pelicula('Pelicula5', '48', 'E')
+    new Pelicula('Pelicula1', '35', 'M'),
+    new Pelicula('Pelicula2', '45', 'T'),
+    new Pelicula('Pelicula3', '50', 'RP'),
+    new Pelicula('Pelicula4', '64', 'T'),
+    new Pelicula('Pelicula5', '48', 'E')
 ];
 
 async function getAll() {
-return peliculas;
+    return peliculas;
 }
 
 async function getByTitulo(titulo) {
-console.log(titulo);
-return filterByTtitulo(peliculas, titulo);
+    console.log(titulo);
+    return filterByTtitulo(peliculas, titulo);
 }
 async function getByAge(edadMin, edadMax) {
-return filterByRange(peliculas, 'edad', edadMin, edadMax)
+    return filterByRange(peliculas, 'edad', edadMin, edadMax)
 }
 
 function filterByTtitulo(elems, val) {
-const result = []
-for (const elem of elems) {
-if (elem.titulo == val) {
-result.push(elem);
-}
-}
-return result;
+    const result = []
+    for (const elem of elems) {
+        if (elem.titulo == val) {
+            result.push(elem);
+        }
+    }
+    return result;
 }
 
 function filterByRange(elems, campo, minVal, maxVal) {
-const result = []
-for (const elem of elems) {
-if (elem[campo] >= minVal && elem[campo] <= maxVal) {
-result.push(elem)
-}
-}
-return result
+    const result = []
+    for (const elem of elems) {
+        if (elem[campo] >= minVal && elem[campo] <= maxVal) {
+            result.push(elem)
+        }
+    }
+    return result
 }
 
 async function getByDni(dni) {
-const estudianteBuscado = peliculas.find(e => e.dni == dni)
-return estudianteBuscado
+    const estudianteBuscado = peliculas.find(e => e.dni == dni)
+    return estudianteBuscado
 }
 
 async function add(estuNuevo) {
-const estudianteBuscado = await getByDni(estuNuevo.dni)
-if (estudianteBuscado)
-throw { status: 400, descripcion: 'ya existe un estudiante con ese dni' }
+    const estudianteBuscado = await getByDni(estuNuevo.dni)
+    if (estudianteBuscado)
+        throw { status: 400, descripcion: 'ya existe un estudiante con ese dni' }
 
-peliculas.push(estuNuevo)
-return estuNuevo
+    peliculas.push(estuNuevo)
+    return estuNuevo
 }
 
 async function deleteByDni(dni) {
-const posBuscada = peliculas.findIndex(e => e.dni == dni)
-if (posBuscada == -1)
-throw { status: 404, description: 'estudiante no encontrado' }
+    const posBuscada = peliculas.findIndex(e => e.dni == dni)
+    if (posBuscada == -1)
+        throw { status: 404, description: 'estudiante no encontrado' }
 
-peliculas.splice(posBuscada, 1)
+    peliculas.splice(posBuscada, 1)
 }
 
 async function updateByDni(dni, nuevoEstu) {
-const posBuscada = peliculas.findIndex(e => e.dni == dni)
-if (posBuscada == -1)
-throw { status: 404, description: 'estudiante no encontrado' }
+    const posBuscada = peliculas.findIndex(e => e.dni == dni)
+    if (posBuscada == -1)
+        throw { status: 404, description: 'estudiante no encontrado' }
 
-peliculas.splice(posBuscada, 1, nuevoEstu)
-return nuevoEstu
+    peliculas.splice(posBuscada, 1, nuevoEstu)
+    return nuevoEstu
 }
 
 module.exports = {
-getAll,
-getByTitulo,
-getByAge,
-getByDni,
-add,
-deleteByDni,
-updateByDni
+    getAll,
+    getByTitulo,
+    getByAge,
+    getByDni,
+    add,
+    deleteByDni,
+    updateByDni
 }
