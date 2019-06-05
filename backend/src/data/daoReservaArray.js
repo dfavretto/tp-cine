@@ -1,5 +1,5 @@
 const Reserva = require('../models/reserva').Reserva;
-const Funcion = require('../models/funcion');
+const Funcion = require('../models/funcion').Funcion;
 
 let funcion1 = new Funcion (20, 1, 5);
 

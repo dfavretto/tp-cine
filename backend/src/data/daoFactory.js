@@ -32,8 +32,8 @@ function getSalasDAO() {
 
 function getReservasDAO(){
     switch (mode) {
-        case 'online': return reservaDAO_Arr;
-        case 'offline': throw "not implemented DAO";
+        case 'online': throw "not implemented DAO";
+        case 'offline': return reservaDAO_Arr;
         default: throw "invalid mode. check system config!";
     }
 }
