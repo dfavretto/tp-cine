@@ -8,6 +8,9 @@ const router = express.Router()
 
 const baseURI = '/api/reserva'
 
+/**
+ * Obtener todas las reservas
+ */
 router.get('/', async (req, res) => {
     console.log(`GETTING: ${baseURI}${req.url}`);
 
@@ -28,6 +31,26 @@ async function _handleGetAll(req, res) {
     }
 }
 
+/**
+ * Obtener todas las reservas de un usuario por su email
+ */
+router.get('/:email', async (req, res) => {
+    try {
+        console.log(`GETTING: ${baseURI}${req.url}`);
+
+        const reservaDAO = daoFactory.getReservasDAO();
+        const resultado = await reservaDAO.getByEmail(req.params.email);
+
+        if (!resultado) {
+            throw { status: 404, descripcion: 'Reservas no encontradas' };
+        }
+
+        res.json(resultado);
+    } catch (err) {
+        res.status(err.status).json(err);
+    }
+});
+
 router.get('/reenviar', async (req, res) => {
     console.log(`GETTING: ${baseURI}${req.url}`);
 
@@ -47,6 +70,11 @@ async function _handleReenviar(req, res) {
     } catch (err) {
         res.status(err.status).json(err);
     }
+}
+async function enviarEmail(reserva) {
+    console.log('Enviando email');
+    await emailer.sendEmail(reserva);
+    console.log('Email enviado');
 }
 
 async function sendEmail(reservas) {
