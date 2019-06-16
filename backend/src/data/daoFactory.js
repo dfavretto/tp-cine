@@ -1,15 +1,15 @@
-const peliculaDAO_Arr = require('./daoPeliculaArray');
-const peliculaDAO_DB = require('./daoPeliculaDB');
+const estadisticaDAO_Arr = require('./daoEstadisticaArray');
 const funcionDAO_Arr = require('./daoFuncionArray');
 const funcionDAO_DB = require('./daoFuncionDB');
+const peliculaDAO_Arr = require('./daoPeliculaArray');
+const peliculaDAO_DB = require('./daoPeliculaDB');
 const reservaDAO_Arr = require('./daoReservaArray');
-const salaDAO_DB = require('./daoSalaDB');
 const { mode } = require('../db/config');
 
-function getPeliculasDAO() {
+function getEstadisticasDAO() {
     switch (mode) {
-        case 'online': return peliculaDAO_DB;
-        case 'offline': return peliculaDAO_Arr;
+        case 'online': throw "not implemented DAO";
+        case 'offline': return estadisticaDAO_Arr;
         default: throw "invalid mode. check system config!";
     }
 }
@@ -22,10 +22,10 @@ function getFuncionesDAO() {
     }
 }
 
-function getSalasDAO() {
+function getPeliculasDAO() {
     switch (mode) {
-        case 'online': return salaDAO_DB;
-        case 'offline': throw "not implemented DAO";
+        case 'online': return peliculaDAO_DB;
+        case 'offline': return peliculaDAO_Arr;
         default: throw "invalid mode. check system config!";
     }
 }
@@ -39,8 +39,8 @@ function getReservasDAO(){
 }
 
 module.exports = {
-    getPeliculasDAO,
+    getEstadisticasDAO,
     getFuncionesDAO,
-    getSalasDAO,
+    getPeliculasDAO,
     getReservasDAO
 };
