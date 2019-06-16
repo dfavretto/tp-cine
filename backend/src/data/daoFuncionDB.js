@@ -14,7 +14,7 @@ async function getByPelicula(idPelicula) {
     let funciones = await getAll()
     return filterByPelicula(funciones, idPelicula);
 }
-    
+
 function filterByPelicula(elems, val) {
     const result = []
     console.log(elems)
