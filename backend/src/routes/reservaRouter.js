@@ -72,4 +72,25 @@ async function enviarEmail(reserva) {
     console.log('Email enviado');
 }
 
+/**
+ * Crear una reserva
+ */
+router.post('/', async (req, res) => {
+    console.log(`POSTING: ${baseURI}${req.url}`);
+
+    try {
+        const reserva = req.body;
+
+        if (!validarReserva(reserva)) {
+            throw { status: 400, descripcion: 'La reserva no existe' };
+        }
+
+        const reservaDAO = daoFactory.getReservasDAO();
+        const nuevaReserva = await reservaDAO.add(reserva);
+        res.status(201).json(nuevaReserva);
+    } catch (err) {
+        res.status(err.status).json(err);
+    }
+});
+
 module.exports = router;
