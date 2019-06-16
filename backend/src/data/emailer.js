@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 /**
  * 
@@ -40,7 +40,7 @@ async function sendEmail(reserva) {
         let mensaje = '';
         reservas.forEach((reserva, indice) => {
             mensaje += `Reserva N° ${indice}:\n ${JSON.stringify(reserva, null, 4)} \n`;
-        })
+        });
 
         console.log('Enviando email con el transporter');
         // send mail with defined transport object
@@ -49,7 +49,7 @@ async function sendEmail(reserva) {
             to: `${reservas[0].email}`, // list of receivers
             subject: "Sus reservas", // Subject line
             text: `Aquí van las reservas`, // plain text body
-            html: `<b>Hello world?</b>\n${mensaje}` // html body
+            html: `<b>Reservas</b></br>${mensaje}` // html body
         });
 
         console.log("Message sent: %s", info.messageId);
