@@ -1,7 +1,15 @@
 const nodemailer = require('nodemailer');
 
-async function sendEmail(mensaje) {
+
+/**
+ * 
+ * @param {Reeserva} reserva 
+ */
+async function sendEmail(reserva) {
     try {
+        if (typeof reserva !== Reserva) {
+            throw new Error('Se debe usar un objeto de tipo Reserva para enviar por email.');
+        }
 
         console.log('Creando cuenta de email');
         // Generate test SMTP service account from ethereal.email
@@ -9,25 +17,39 @@ async function sendEmail(mensaje) {
         let testAccount = await nodemailer.createTestAccount();
 
         console.log('Creando transporter');
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: "smtp.ethereal.email",
-            port: 587,
-            secure: false, // true for 465, false for other ports
+        var transporter = nodemailer.createTransport({
+            service: "gmail",
+            host: "smtp.gmail.com",
             auth: {
-                user: testAccount.user, // generated ethereal user
-                pass: testAccount.pass // generated ethereal password
+                user: "no.david.favretto",
+                pass: "David66Favretto"
             }
         });
+
+        // // create reusable transporter object using the default SMTP transport
+        // let transporter = nodemailer.createTransport({
+        //     host: "smtp.ethereal.email",
+        //     port: 587,
+        //     secure: false, // true for 465, false for other ports
+        //     auth: {
+        //         user: testAccount.user, // generated ethereal user
+        //         pass: testAccount.pass // generated ethereal password
+        //     }
+        // });
+
+        let mensaje = '';
+        reservas.forEach((reserva, indice) => {
+            mensaje += `Reserva N° ${indice}:\n ${JSON.stringify(reserva, null, 4)} \n`;
+        })
 
         console.log('Enviando email con el transporter');
         // send mail with defined transport object
         let info = await transporter.sendMail({
-            from: '"Fred Foo 👻" <foo@example.com>', // sender address
-            to: "ddavidf@gmail.com, jeremias.hsn@gmail.com", // list of receivers
-            subject: "Hello", // Subject line
-            text: `Hello world?\n${mensaje}`, // plain text body
-            html: "<b>Hello world?</b>" // html body
+            from: '"Reservas 👻" <reservas@tp-cine.com>', // sender address
+            to: `${reservas[0].email}`, // list of receivers
+            subject: "Sus reservas", // Subject line
+            text: `Aquí van las reservas`, // plain text body
+            html: `<b>Hello world?</b>\n${mensaje}` // html body
         });
 
         console.log("Message sent: %s", info.messageId);
