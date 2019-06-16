@@ -25,17 +25,7 @@ function filterByPelicula(elems, val) {
     }
     return result;
 }
-    
-function filterByRange(elems, campo, minVal, maxVal) {
-    const result = []
-    for (const elem of elems) {
-        if (elem[campo] >= minVal && elem[campo] <= maxVal) {
-            result.push(elem)
-        }
-    }
-    return result
-}
-    
+
 module.exports = {
     getAll,
     getByPelicula
