@@ -5,12 +5,16 @@ const Funcion = require('../models/funcion').Funcion;
 let funcion1 = new Funcion (20, 1, 5);
 
 const reservas = [
-    new Reserva('ddaviddf@gmail.com', 3, funcion1).id = 0,
-    new Reserva('ddaviddf@gmail.com', 3, funcion1).id = 1,
-    new Reserva('jeremias.hsn@gmail.com', 4, funcion1).id = 0,
-    new Reserva('jeremias.hsn@gmail.com', 2, funcion1).id = 1,
-    new Reserva('jeremias.hsn@gmail.com', 2, funcion1).id = 2
+    new Reserva('ddaviddf@gmail.com', 3, funcion1),
+    new Reserva('ddaviddf@gmail.com', 3, funcion1),
+    new Reserva('jeremias.hsn@gmail.com', 4, funcion1),
+    new Reserva('jeremias.hsn@gmail.com', 2, funcion1),
+    new Reserva('jeremias.hsn@gmail.com', 2, funcion1)
 ];
+
+reservas.forEach((reserva, indice) => {
+    reserva.id = indice;
+});
 
 async function getAll() {
     return reservas;
