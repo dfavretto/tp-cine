@@ -1,7 +1,7 @@
 # Reserva
-- [POST api/reserva](./basics/post-api-reserva.md)
-- [GET api/reserva/:email_id](./basics/get-api-reserva-email-id.md)
-- [GET api/reserva/:id](./basics/get-api-reserva-id.md)
+- [POST api/reserva](./post-api-reserva.md)
+- [GET api/reserva/:email_id](./get-api-reserva-email-id.md)
+- [GET api/reserva/:id](./get-api-reserva-id.md)
 
 # GET api/reserva/:id
 Obtener una reserva específica. Puede ser reenviada por email, y se usará como email destinatario el email asociado a la reserva.
@@ -22,7 +22,7 @@ Obtener una reserva específica. Puede ser reenviada por email, y se usará como
 
 ## Ejemplo de solicitud
 
-`POST http://localhost:8080/api/reserva/3`
+`GET http://localhost:8080/api/reserva/2`
 
 ## Ejemplo de respuesta
 ```JSON

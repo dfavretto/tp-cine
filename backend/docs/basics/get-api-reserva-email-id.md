@@ -1,7 +1,7 @@
 # Reserva
-- [POST api/reserva](./basics/post-api-reserva.md)
-- [GET api/reserva/:email_id](./basics/get-api-reserva-email-id.md)
-- [GET api/reserva/:id](./basics/get-api-reserva-id.md)
+- [POST api/reserva](./post-api-reserva.md)
+- [GET api/reserva/:email_id](./get-api-reserva-email-id.md)
+- [GET api/reserva/:id](./get-api-reserva-id.md)
 
 # GET api/reserva/:email_id
 Obtener una lista de reservas asociadas a un email.
