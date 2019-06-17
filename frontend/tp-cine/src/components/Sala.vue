@@ -150,14 +150,23 @@
 </template>
 
 <script>
+
+
+export default {
+  name: "app"
+};
+/*
 $('.cinema-seats .seat').on('click', function() {
   $(this).toggleClass('active');
 });
+*/
 </script>
+
+
 
 <style>body {
   margin: 60px;
-  background: #111;
+  
 }
 .theatre {
   display: flex;

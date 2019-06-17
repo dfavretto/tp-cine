@@ -3,12 +3,14 @@ dotenv.config()
 
 const dbConfigs = {
     development: {
-        client: 'mssql',
+        client: 'mssql'   ,
         connection: {
-            host: 'localhost',
-            user: 'sa',
-            password: 'sa',
-            database: 'TP2'     
+            server: 'localhost\\SQLEXPRESS',
+           //server: 'DESKTOP-VFJA0I7\\SQLEXPRESS',
+            port: 1433,
+            user: 'web',
+            password: '1234',
+            database: 'Sitios'        
         }
     },
     ort: {
@@ -25,8 +27,8 @@ const dbConfigs = {
 
 const srvConfigs = {
     port: process.env.PORT || 8080,
-    env: process.env.DB_ENV || 'development',
-    mode: process.env.MODE || 'offline'
+    env: 'development',
+    mode: process.env.MODE || 'online'
 }
 
 module.exports = {

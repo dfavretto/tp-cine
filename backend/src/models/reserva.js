@@ -1,5 +1,5 @@
 class Reserva {
-    id = 0;
+    
     constructor(email, cantAsientos, funcion) {
         this.email = email;
         this.cantAsientos = cantAsientos;
