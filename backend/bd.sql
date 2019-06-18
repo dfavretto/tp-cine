@@ -112,6 +112,27 @@ PRIMARY KEY CLUSTERED
 GO
 SET ANSI_PADDING OFF
 GO
+/****** Object:  Table [dbo].[Reservas]    Script Date: 2/6/2019 8:17:27 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Reservas](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Email] [varchar](255) NOT NULL,
+	[CantAsientos] [int] NOT NULL,
+	[FuncionId] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
 /****** Object:  Table [dbo].[Salas]    Script Date: 2/6/2019 8:17:27 p. m. ******/
 SET ANSI_NULLS ON
 GO
@@ -167,11 +188,29 @@ INSERT [dbo].[Salas] ([ID], [CantidadFilas], [ButacasFila]) VALUES (3, 32, 16)
 GO
 SET IDENTITY_INSERT [dbo].[Salas] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Reservas] ON 
+
+GO
+INSERT [dbo].[Reservas] ([ID], [Email], [CantAsientos], [FuncionId]) VALUES (1, 'ddaviddf@gmail.com', 3, 1)
+GO
+INSERT [dbo].[Reservas] ([ID], [Email], [CantAsientos], [FuncionId]) VALUES (2, 'ddaviddf@gmail.com', 3, 1)
+GO
+INSERT [dbo].[Reservas] ([ID], [Email], [CantAsientos], [FuncionId]) VALUES (3, 'jeremias.hsn@gmail.com', 4, 1)
+GO
+INSERT [dbo].[Reservas] ([ID], [Email], [CantAsientos], [FuncionId]) VALUES (4, 'jeremias.hsn@gmail.com', 2, 1)
+GO
+INSERT [dbo].[Reservas] ([ID], [Email], [CantAsientos], [FuncionId]) VALUES (5,'jeremias.hsn@gmail.com', 2, 1)
+GO
+SET IDENTITY_INSERT [dbo].[Reservas] OFF
+GO
 ALTER TABLE [dbo].[Funciones]  WITH CHECK ADD FOREIGN KEY([PeliculaId])
 REFERENCES [dbo].[Peliculas] ([ID])
 GO
 ALTER TABLE [dbo].[Funciones]  WITH CHECK ADD FOREIGN KEY([SalaId])
 REFERENCES [dbo].[Salas] ([ID])
+GO
+ALTER TABLE [dbo].[Reservas]  WITH CHECK ADD FOREIGN KEY([FuncionId])
+REFERENCES [dbo].[Funciones] ([ID])
 GO
 USE [master]
 GO
