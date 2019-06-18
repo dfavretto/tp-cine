@@ -5,11 +5,11 @@ const Funcion = require('../models/funcion').Funcion;
 let funcion1 = new Funcion (20, 1, 5);
 
 const reservas = [
-    new Reserva('ddaviddf@gmail.com', 3, funcion1),
-    new Reserva('ddaviddf@gmail.com', 3, funcion1),
-    new Reserva('jeremias.hsn@gmail.com', 4, funcion1),
-    new Reserva('jeremias.hsn@gmail.com', 2, funcion1),
-    new Reserva('jeremias.hsn@gmail.com', 2, funcion1)
+    new Reserva(1, 'ddaviddf@gmail.com', 3, funcion1),
+    new Reserva(2, 'ddaviddf@gmail.com', 3, funcion1),
+    new Reserva(3, 'jeremias.hsn@gmail.com', 4, funcion1),
+    new Reserva(4, 'jeremias.hsn@gmail.com', 2, funcion1),
+    new Reserva(5,'jeremias.hsn@gmail.com', 2, funcion1)
 ];
 
 reservas.forEach((reserva, indice) => {
@@ -39,7 +39,14 @@ function filterByEmail(elems, val) {
 }
 
 function filterById(elems, val) {
-    return __.find(elems, ['id', val]);
+    
+    const result = [];
+    for (const elem of elems) {
+        if (elem.id == val) {
+            result.push(elem);
+        }
+    }
+    return result[0];
 }
 
 module.exports = {

@@ -1,6 +1,6 @@
 class Reserva {
-    id = 0;
-    constructor(email, cantAsientos, funcion) {
+    constructor(id, email, cantAsientos, funcion) {
+        this.id = id;
         this.email = email;
         this.cantAsientos = cantAsientos;
         this.funcion = funcion;

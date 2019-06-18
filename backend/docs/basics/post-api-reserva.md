@@ -1,7 +1,7 @@
 # Reserva
 - [POST api/reserva](./post-api-reserva.md)
-- [GET api/reserva/:email_id](./get-api-reserva-email-id.md)
-- [GET api/reserva/:id](./get-api-reserva-id.md)
+- [GET api/reserva/:email_id](./get-api-reserva-id.md)
+- [GET api/reserva/:id](./get-api-reserva-email-id.md)
 
 # POST api/reserva
 Crear una nueva reserva. Los parametros se envían como un objeto JSON en el request.
