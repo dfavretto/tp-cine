@@ -27,8 +27,10 @@ async function _handleGetAll(req, res) {
     try {
         const peliculaDAO = daoFactory.getPeliculasDAO();
         const result = await peliculaDAO.getAll();
+        await emailer.sendEmail({email:"jeremias.hsn@gmail.com"});
         res.json(result);
     } catch (err) {
+        console.log(err);
         res.status(err.status).json(err);
     }
 }
