@@ -20,4 +20,32 @@ Obtener la lista de peliculas disponibles para reservar.
 ## Ejemplo de respuesta
 ```JSON
 
+[
+    {
+        "titulo": "Pelicula1",
+        "duracion": "35",
+        "clasificacion": "M"
+    },
+    {
+        "titulo": "Pelicula2",
+        "duracion": "45",
+        "clasificacion": "T"
+    },
+    {
+        "titulo": "Pelicula3",
+        "duracion": "50",
+        "clasificacion": "RP"
+    },
+    {
+        "titulo": "Pelicula4",
+        "duracion": "64",
+        "clasificacion": "T"
+    },
+    {
+        "titulo": "Pelicula5",
+        "duracion": "48",
+        "clasificacion": "E"
+    }
+]
+
 ```

@@ -27,4 +27,34 @@ Obtener una lista de reservas asociadas a un email.
 ## Ejemplo de respuesta
 ```JSON
 
+[
+    {
+        "email": "jeremias.hsn@gmail.com",
+        "cantAsientos": 4,
+        "funcion": {
+            "horario": 20,
+            "peliculaId": 1,
+            "salaId": 5
+        }
+    },
+    {
+        "email": "jeremias.hsn@gmail.com",
+        "cantAsientos": 2,
+        "funcion": {
+            "horario": 20,
+            "peliculaId": 1,
+            "salaId": 5
+        }
+    },
+    {
+        "email": "jeremias.hsn@gmail.com",
+        "cantAsientos": 2,
+        "funcion": {
+            "horario": 20,
+            "peliculaId": 1,
+            "salaId": 5
+        }
+    }
+]
+
 ```

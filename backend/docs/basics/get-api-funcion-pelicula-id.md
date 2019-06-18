@@ -25,4 +25,32 @@ Obtener la lista de funciones disponibles para una determinada pelicula.
 ## Ejemplo de respuesta
 ```JSON
 
+[
+    {
+        "horario": "12:00",
+        "peliculaId": "Pelicula1",
+        "salaId": "2"
+    },
+    {
+        "horario": "14:00",
+        "peliculaId": "Pelicula1",
+        "salaId": "2"
+    },
+    {
+        "horario": "16:00",
+        "peliculaId": "Pelicula1",
+        "salaId": "2"
+    },
+    {
+        "horario": "18:00",
+        "peliculaId": "Pelicula1",
+        "salaId": "2"
+    },
+    {
+        "horario": "20:00",
+        "peliculaId": "Pelicula1",
+        "salaId": "2"
+    }
+]
+
 ```
