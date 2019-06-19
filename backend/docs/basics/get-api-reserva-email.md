@@ -1,9 +1,9 @@
 # Reserva
 - [POST api/reserva](./post-api-reserva.md)
-- [GET api/reserva/:email_id](./get-api-reserva-email.md)
-- [GET api/reserva/:id](./get-api-reserva-id.md)
+- **[GET api/reserva/:email](./get-api-reserva-email.md)**
+- [GET api/reserva/:email/:id](./get-api-reserva-email-id.md)
 
-# GET api/reserva/:email_id
+# GET api/reserva/:email
 Obtener una lista de reservas asociadas a un email.
 
 ## URL del Recurso
@@ -26,7 +26,6 @@ Obtener una lista de reservas asociadas a un email.
 
 ## Ejemplo de respuesta
 ```JSON
-
 [
     {
         "email": "jeremias.hsn@gmail.com",
@@ -56,5 +55,4 @@ Obtener una lista de reservas asociadas a un email.
         }
     }
 ]
-
 ```

@@ -1,5 +1,5 @@
 # Estadistica
-- [GET api/estadistica](./basics/get-api-estadistica.md)
+- **[GET api/estadistica](./basics/get-api-estadistica.md)**
 
 # GET api/estadistica
 Obtener todas las estadisticas generadas a partir de las reservas registradas.

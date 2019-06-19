@@ -1,5 +1,5 @@
 # Pelicula
-- [GET api/pelicula](./basics/get-api-pelicula.md)
+- **[GET api/pelicula](./basics/get-api-pelicula.md)**
 
 # GET api/pelicula
 Obtener la lista de peliculas disponibles para reservar.

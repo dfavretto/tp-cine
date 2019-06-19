@@ -1,7 +1,7 @@
 # Reserva
 - [POST api/reserva](./post-api-reserva.md)
-- [GET api/reserva/:email_id](./get-api-reserva-email.md)
-- [GET api/reserva/:id](./get-api-reserva-email-id.md)
+- [GET api/reserva/:email](./get-api-reserva-email.md)
+- **[GET api/reserva/:email/:id](./get-api-reserva-email-id.md)**
 
 # GET api/reserva/:id
 Obtener una reserva específica. Puede ser reenviada por email, y se usará como email destinatario el email asociado a la reserva.
@@ -16,14 +16,15 @@ Obtener una reserva específica. Puede ser reenviada por email, y se usará como
 | Requiere autenticacion? | No    |
 
 ## Parametros
-| Nombre | Obligatorio | Descripcion                                                 |
-|--------|-------------|-------------------------------------------------------------|
-| email  | SI          | Identificador del dueño de la reserva para obtener la misma |
-| id     | SI          | Identificador de la reserva para obtener la misma           |
+| Nombre      | Obligatorio | Descripcion                                                 |
+|-------------|-------------|-------------------------------------------------------------|
+| email       | SI          | Identificador del dueño de la reserva para obtener la misma |
+| id          | SI          | Identificador de la reserva para obtener la misma           |
+| enviarEmail | NO          | Indica si se debe enviar la reserva por email               |
 
 ## Ejemplo de solicitud
 
-`GET http://localhost:8080/api/reserva/ddaviddf@gmail.com/1`
+`GET http://localhost:8080/api/reserva/ddaviddf@gmail.com/1?enviarEmail=true`
 
 ## Ejemplo de respuesta
 ```JSON

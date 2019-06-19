@@ -1,6 +1,6 @@
 # Funcion
 - [GET api/funcion](./get-api-funcion.md)
-- **[GET api/funcion/:id_pelicula](./get-api-funcion-pelicula-id.md)**
+- **[GET api/funcion/:pelicula_id](./get-api-funcion-pelicula-id.md)**
 
 # GET api/funcion/:id_pelicula
 Obtener la lista de funciones disponibles para una determinada pelicula.
