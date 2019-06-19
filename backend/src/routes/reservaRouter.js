@@ -54,8 +54,9 @@ router.get('/:email/:id', async (req, res) => {
             throw { status: 404, descripcion: 'reserva no encontrada' };
         }
 
-        await enviarEmail(resultado);
-
+        if (req.query != null && req.query.enviarEmail != null && req.query.enviarEmail) {
+            await enviarEmail(resultado);
+        }
         res.json(resultado);
     } catch (err) {
         res.status(err.status).json(err);

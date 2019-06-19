@@ -11,30 +11,11 @@ async function getAll() {
 }
 
 async function getByTitulo(titulo) {
-    console.log(titulo + " DB" );
-    let peliculas = await getAll()
-    return filterByTitulo(peliculas, titulo);
-}
+
+    const selectByTituloQuery = `SELECT * FROM Peliculas where titulo=${titulo};`
+    const result = await knex.raw(selectByTituloQuery);
     
-function filterByTitulo(elems, val) {
-    const result = []
-    console.log(elems)
-    for (const elem of elems) {
-        if (elem.Titulo == val) {
-            result.push(elem);
-        }
-    }
     return result;
-}
-    
-function filterByRange(elems, campo, minVal, maxVal) {
-    const result = []
-    for (const elem of elems) {
-        if (elem[campo] >= minVal && elem[campo] <= maxVal) {
-            result.push(elem)
-        }
-    }
-    return result
 }
     
 module.exports = {

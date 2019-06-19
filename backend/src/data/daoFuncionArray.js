@@ -1,20 +1,19 @@
 const Funcion = require('../models/funcion').Funcion;
 
 const funciones = [
-    new Funcion('12:00', 'Pelicula1', '2'),
-    new Funcion('14:00', 'Pelicula1', '2'),
-    new Funcion('16:00', 'Pelicula1', '2'),
-    new Funcion('18:00', 'Pelicula1', '2'),
-    new Funcion('20:00', 'Pelicula1', '2')
+    new Funcion(0, '12:00', 'Hulk', '2'),
+    new Funcion(1, '14:00', 'Batman', '2'),
+    new Funcion(2, '16:00', 'Pokemon', '3'),
+    new Funcion(3, '18:00', 'Batman', '2'),
+    new Funcion(4, '20:00', 'Pokemon', '1')
 ];
 
 async function getAll() {
     return funciones;
 }
 
-async function getByPelicula(pelicula) {
-    console.log(pelicula);
-    return filterByPelicula(funciones, pelicula);
+async function getByPelicula(peliculaId) {
+    return filterByPelicula(funciones, peliculaId);
 }
 
 function filterByPelicula(elems, val) {

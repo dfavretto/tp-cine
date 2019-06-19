@@ -1,11 +1,11 @@
 const Pelicula = require('../models/pelicula').Pelicula;
 
 const peliculas = [
-    new Pelicula('Pelicula1', '35', 'M'),
-    new Pelicula('Pelicula2', '45', 'T'),
-    new Pelicula('Pelicula3', '50', 'RP'),
-    new Pelicula('Pelicula4', '64', 'T'),
-    new Pelicula('Pelicula5', '48', 'E')
+    new Pelicula(0, 'Hulk', '35', 'M'),
+    new Pelicula(1, 'Batman', '45', 'T'),
+    new Pelicula(2, 'El padrino', '50', 'RP'),
+    new Pelicula(3, 'Unknown', '64', 'T'),
+    new Pelicula(4, 'Pokemon', '48', 'E')
 ];
 
 async function getAll() {
@@ -13,11 +13,7 @@ async function getAll() {
 }
 
 async function getByTitulo(titulo) {
-    console.log(titulo);
     return filterByTtitulo(peliculas, titulo);
-}
-async function getByAge(edadMin, edadMax) {
-    return filterByRange(peliculas, 'edad', edadMin, edadMax)
 }
 
 function filterByTtitulo(elems, val) {
@@ -30,53 +26,7 @@ function filterByTtitulo(elems, val) {
     return result;
 }
 
-function filterByRange(elems, campo, minVal, maxVal) {
-    const result = []
-    for (const elem of elems) {
-        if (elem[campo] >= minVal && elem[campo] <= maxVal) {
-            result.push(elem)
-        }
-    }
-    return result
-}
-
-async function getByDni(dni) {
-    const estudianteBuscado = peliculas.find(e => e.dni == dni)
-    return estudianteBuscado
-}
-
-async function add(estuNuevo) {
-    const estudianteBuscado = await getByDni(estuNuevo.dni)
-    if (estudianteBuscado)
-        throw { status: 400, descripcion: 'ya existe un estudiante con ese dni' }
-
-    peliculas.push(estuNuevo)
-    return estuNuevo
-}
-
-async function deleteByDni(dni) {
-    const posBuscada = peliculas.findIndex(e => e.dni == dni)
-    if (posBuscada == -1)
-        throw { status: 404, description: 'estudiante no encontrado' }
-
-    peliculas.splice(posBuscada, 1)
-}
-
-async function updateByDni(dni, nuevoEstu) {
-    const posBuscada = peliculas.findIndex(e => e.dni == dni)
-    if (posBuscada == -1)
-        throw { status: 404, description: 'estudiante no encontrado' }
-
-    peliculas.splice(posBuscada, 1, nuevoEstu)
-    return nuevoEstu
-}
-
 module.exports = {
     getAll,
-    getByTitulo,
-    getByAge,
-    getByDni,
-    add,
-    deleteByDni,
-    updateByDni
+    getByTitulo
 }
