@@ -26,9 +26,9 @@ const dbConfigs = {
 };
 
 const srvConfigs = {
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 8081,
     env: 'development',
-    mode: process.env.MODE || 'online'
+    mode: process.env.MODE || 'offline'
 }
 
 module.exports = {
