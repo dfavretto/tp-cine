@@ -3,6 +3,7 @@ const funcionRouter = require('./routes/funcionRouter');
 const peliculaRouter = require('./routes/peliculaRouter');
 const salaRouter = require('./routes/salaRouter');
 const reservaRouter = require('./routes/reservaRouter');
+const estadisticaRouter = require('./routes/estadisticaRouter');
 
 //Permitir el uso de llamadas por servicio desde páginas
 var cors = require('cors')
@@ -20,6 +21,7 @@ app.use('/api/pelicula', peliculaRouter);
 app.use('/api/funcion', funcionRouter);
 app.use('/api/sala', salaRouter);
 app.use('/api/reserva', reservaRouter);
+app.use('/api/estadistica', estadisticaRouter);
 
 const puerto = 8090;
 app.listen(puerto, () => {
