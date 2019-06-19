@@ -13,7 +13,6 @@ async function getAll() {
 }
 
 async function getByPelicula(pelicula) {
-    console.log(pelicula);
     return filterByPelicula(funciones, pelicula);
 }
 

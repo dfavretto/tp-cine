@@ -11,19 +11,14 @@ async function getAll() {
 }
 
 async function getByPelicula(idPelicula) {
-    let funciones = await getAll()
-    return filterByPelicula(funciones, idPelicula);
-}
+    try{
+    const selectByIdQuery = `SELECT * FROM Funciones where PeliculaId=${idPelicula};`
+    const result = await knex.raw(selectByIdQuery);
 
-function filterByPelicula(elems, val) {
-    const result = []
-    console.log(elems)
-    for (const elem of elems) {
-        if (elem.PeliculaId == val) {
-            result.push(elem);
-        }
-    }
     return result;
+    } catch (err) {
+        throw { status: 500, descripcion: err.message }
+    }
 }
 
 module.exports = {
