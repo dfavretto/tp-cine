@@ -1,11 +1,11 @@
 const Pelicula = require('../models/pelicula').Pelicula;
 
 const peliculas = [
-    new Pelicula('Pelicula1', '35', 'M'),
-    new Pelicula('Pelicula2', '45', 'T'),
-    new Pelicula('Pelicula3', '50', 'RP'),
-    new Pelicula('Pelicula4', '64', 'T'),
-    new Pelicula('Pelicula5', '48', 'E')
+    new Pelicula(0, 'Hulk', '35', 'M'),
+    new Pelicula(1, 'Batman', '45', 'T'),
+    new Pelicula(2, 'El padrino', '50', 'RP'),
+    new Pelicula(3, 'Unknown', '64', 'T'),
+    new Pelicula(4, 'Pokemon', '48', 'E')
 ];
 
 async function getAll() {
