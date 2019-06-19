@@ -19,5 +19,42 @@ Obtener todas las estadisticas generadas a partir de las reservas registradas.
 
 ## Ejemplo de respuesta
 ```JSON
-
+{
+    "PeliculaMasReservada": [
+        {
+            "Pelicula": "El rey leon",
+            "CantidadReservas": 8
+        },
+        {
+            "Pelicula": "Toy Story 2",
+            "CantidadReservas": 5
+        },
+        {
+            "Pelicula": "Matrix",
+            "CantidadReservas": 4
+        },
+        {
+            "Pelicula": "El señor de los anillos",
+            "CantidadReservas": 15
+        },
+        {
+            "Pelicula": "Gran Torino",
+            "CantidadReservas": 1
+        }
+    ],
+    "HorarioMasPopular": [
+        {
+            "Horario": "15:00",
+            "CantidadReservas": 6
+        },
+        {
+            "Horario": "20:00",
+            "CantidadReservas": 18
+        },
+        {
+            "Horario": "12:00",
+            "CantidadReservas": 3
+        }
+    ]
+}
 ```
