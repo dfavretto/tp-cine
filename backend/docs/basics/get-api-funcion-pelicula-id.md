@@ -2,11 +2,11 @@
 - [GET api/funcion](./get-api-funcion.md)
 - **[GET api/funcion/:pelicula_id](./get-api-funcion-pelicula-id.md)**
 
-# GET api/funcion/:id_pelicula
+# GET api/funcion/:pelicula_id
 Obtener la lista de funciones disponibles para una determinada pelicula.
 
 ## URL del Recurso
-`http://localhost:8080/api/funcion/:id_pelicula`
+`http://localhost:8080/api/funcion/:pelicula_id`
 
 ## Informacion del Recurso
 |                         |       |
@@ -17,40 +17,26 @@ Obtener la lista de funciones disponibles para una determinada pelicula.
 ## Parametros
 | Nombre      | Obligatorio | Descripcion                                                   |
 |-------------|-------------|---------------------------------------------------------------|
-| id_pelicula | SI          | Identificador de la pelicula cuyos horarios se deseen obtener |
+| pelicula_id | SI          | Identificador de la pelicula cuyos horarios se deseen obtener |
 
 ## Ejemplo de solicitud
 
-`GET http://localhost:8080/api/funcion/1`
+`GET http://localhost:8080/api/funcion/Batman`
 
 ## Ejemplo de respuesta
 ```JSON
 [
     {
-        "horario": "12:00",
-        "peliculaId": "Pelicula1",
-        "salaId": "2"
-    },
-    {
+        "id": 1,
         "horario": "14:00",
-        "peliculaId": "Pelicula1",
+        "peliculaId": "Batman",
         "salaId": "2"
     },
     {
-        "horario": "16:00",
-        "peliculaId": "Pelicula1",
-        "salaId": "2"
-    },
-    {
+        "id": 3,
         "horario": "18:00",
-        "peliculaId": "Pelicula1",
-        "salaId": "2"
-    },
-    {
-        "horario": "20:00",
-        "peliculaId": "Pelicula1",
+        "peliculaId": "Batman",
         "salaId": "2"
     }
 ]
-
 ```

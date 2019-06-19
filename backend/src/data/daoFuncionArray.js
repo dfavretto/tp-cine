@@ -12,8 +12,8 @@ async function getAll() {
     return funciones;
 }
 
-async function getByPelicula(pelicula) {
-    return filterByPelicula(funciones, pelicula);
+async function getByPelicula(peliculaId) {
+    return filterByPelicula(funciones, peliculaId);
 }
 
 function filterByPelicula(elems, val) {

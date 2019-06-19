@@ -28,30 +28,33 @@ Obtener una lista de reservas asociadas a un email.
 ```JSON
 [
     {
+        "id": 2,
         "email": "jeremias.hsn@gmail.com",
         "cantAsientos": 4,
         "funcion": {
-            "horario": 20,
-            "peliculaId": 1,
-            "salaId": 5
+            "id": 20,
+            "horario": 1,
+            "peliculaId": 5
         }
     },
     {
+        "id": 3,
         "email": "jeremias.hsn@gmail.com",
         "cantAsientos": 2,
         "funcion": {
-            "horario": 20,
-            "peliculaId": 1,
-            "salaId": 5
+            "id": 20,
+            "horario": 1,
+            "peliculaId": 5
         }
     },
     {
+        "id": 4,
         "email": "jeremias.hsn@gmail.com",
         "cantAsientos": 2,
         "funcion": {
-            "horario": 20,
-            "peliculaId": 1,
-            "salaId": 5
+            "id": 20,
+            "horario": 1,
+            "peliculaId": 5
         }
     }
 ]

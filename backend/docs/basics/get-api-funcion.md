@@ -22,30 +22,34 @@ Obtener toda la lista de funciones.
 ```JSON
 [
     {
+        "id": 0,
         "horario": "12:00",
-        "peliculaId": "Pelicula1",
+        "peliculaId": "Hulk",
         "salaId": "2"
     },
     {
+        "id": 1,
         "horario": "14:00",
-        "peliculaId": "Pelicula1",
+        "peliculaId": "Batman",
         "salaId": "2"
     },
     {
+        "id": 2,
         "horario": "16:00",
-        "peliculaId": "Pelicula1",
-        "salaId": "2"
+        "peliculaId": "Pokemon",
+        "salaId": "3"
     },
     {
+        "id": 3,
         "horario": "18:00",
-        "peliculaId": "Pelicula1",
+        "peliculaId": "Batman",
         "salaId": "2"
     },
     {
+        "id": 4,
         "horario": "20:00",
-        "peliculaId": "Pelicula1",
-        "salaId": "2"
+        "peliculaId": "Pokemon",
+        "salaId": "1"
     }
 ]
-
 ```

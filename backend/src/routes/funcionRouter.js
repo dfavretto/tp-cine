@@ -19,12 +19,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:idPelicula', async (req, res) => {
+router.get('/:peliculaId', async (req, res) => {
     console.log(`GETTING: ${baseURI}${req.url}`)
 
     try {
         const funcionDAO = daoFactory.getFuncionesDAO();
-        const resultado = await funcionDAO.getByPelicula(req.params.idPelicula);
+        const resultado = await funcionDAO.getByPelicula(req.params.peliculaId);
 
         if (!resultado)
             throw { status: 404, descripcion: 'funcion no encontrada' }
