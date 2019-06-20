@@ -20,8 +20,8 @@ app.set('json spaces', 4);
 app.use('/api/pelicula', peliculaRouter.router);
 app.use('/api/funcion', funcionRouter);
 app.use('/api/sala', salaRouter);
-app.use('/api/reserva', reservaRouter);
-app.use('/api/estadistica', estadisticaRouter);
+app.use('/api/reserva', reservaRouter.router);
+app.use('/api/estadistica', estadisticaRouter.router);
 
 const puerto = 8090;
 app.listen(puerto, () => {
