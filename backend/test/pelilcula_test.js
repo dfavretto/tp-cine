@@ -12,7 +12,7 @@ describe("Peliculas", function () {
             assert.deepStrictEqual(JSON.stringify(resultado), JSON.stringify(arrayMockeado));
         });
 
-        it.skip("Se produjo un error", function () {
+        it.skip("Se produjo un error", async function () {
 
         });
     });
@@ -24,7 +24,9 @@ describe("Peliculas", function () {
             assert.deepStrictEqual(JSON.stringify(resultado), JSON.stringify(peliculaMockeada));
         });
 
-        it.skip("Se produjo un error", function () {
+        it("Se produjo un error", async function () {
+            const resultado = await peliculaRouter.getByTitulo("9847194719872359871");
+            assert.deepStrictEqual(JSON.stringify(resultado), '[]');
 
         });
     })

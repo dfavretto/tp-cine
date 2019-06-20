@@ -38,7 +38,7 @@ router.get('/:titulo', async (req, res) => {
     try {
         const resultado = await getByTitulo(req.params.titulo);
 
-        if (!resultado) {
+        if (!resultado || resultado.length === 0) {
             throw { status: 404, descripcion: 'pelicula no encontrada' };
         }
 
