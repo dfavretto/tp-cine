@@ -17,7 +17,7 @@ app.use(cors())
 
 app.set('json spaces', 4);
 
-app.use('/api/pelicula', peliculaRouter);
+app.use('/api/pelicula', peliculaRouter.router);
 app.use('/api/funcion', funcionRouter);
 app.use('/api/sala', salaRouter);
 app.use('/api/reserva', reservaRouter);

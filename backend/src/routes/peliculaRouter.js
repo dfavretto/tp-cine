@@ -12,8 +12,7 @@ router.get('/', async (req, res) => {
 
     try {
 
-        const peliculaDAO = daoFactory.getPeliculasDAO();
-        const result = await peliculaDAO.getAll();
+        const result = await getAll();
         res.json(result);
 
     } catch (err) {
@@ -21,12 +20,23 @@ router.get('/', async (req, res) => {
     }
 });
 
+async function getAll (){
+    try {
+
+        const peliculaDAO = daoFactory.getPeliculasDAO();
+        const result = await peliculaDAO.getAll();
+        return result;
+
+    } catch (err) {
+        throw err;
+    }
+}
+
 router.get('/:titulo', async (req, res) => {
     console.log(`GETTING: ${baseURI}${req.url}`);
 
     try {
-        const peliculaDAO = daoFactory.getPeliculasDAO();
-        const resultado = await peliculaDAO.getByTitulo(req.params.titulo);
+        const resultado = await getByTitulo(req.params.titulo);
 
         if (!resultado) {
             throw { status: 404, descripcion: 'pelicula no encontrada' };
@@ -38,6 +48,17 @@ router.get('/:titulo', async (req, res) => {
     }
 });
 
+async function getByTitulo (titulo){
+    try {
+        const peliculaDAO = daoFactory.getPeliculasDAO();
+        const resultado = await peliculaDAO.getByTitulo(titulo);
+
+        return resultado;
+    } catch (err) {
+        throw err;
+    }
+}
+
 /**
  * 
  * @param {Reserva} reserva 
@@ -48,4 +69,8 @@ async function enviarEmail(reserva) {
     console.log('Email enviado');
 }
 
-module.exports = router;
+module.exports = {
+    router,
+    getAll, 
+    getByTitulo
+};
