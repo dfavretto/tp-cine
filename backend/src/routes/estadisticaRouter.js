@@ -11,13 +11,22 @@ router.get('/', async (req, res) => {
     try {
         console.log(`GETTING: ${baseURI}${req.url}`);
 
-        const estadisticaDAO = daoFactory.getEstadisticasDAO();
-        const result = await estadisticaDAO.getAll();
+        const result = await getAll();
         res.json(result);
     } catch (err) {
         res.status(err.status).json(err);
     }
 });
+
+async function getAll() {
+    try {
+        const estadisticaDAO = daoFactory.getEstadisticasDAO();
+        const result = await estadisticaDAO.getAll();
+        return result;
+    } catch (err) {
+        throw err;
+    }
+}
 
 /**
  * 
@@ -29,4 +38,7 @@ async function enviarEmail(reserva) {
     console.log('Email enviado');
 }
 
-module.exports = router;
+module.exports = {
+    getAll,
+    router
+};

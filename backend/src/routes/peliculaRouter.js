@@ -14,13 +14,12 @@ router.get('/', async (req, res) => {
 
         const result = await getAll();
         res.json(result);
-
     } catch (err) {
         res.status(err.status).json(err);
     }
 });
 
-async function getAll (){
+async function getAll() {
     try {
 
         const peliculaDAO = daoFactory.getPeliculasDAO();
