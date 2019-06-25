@@ -23,9 +23,11 @@
 export default {
   data: function() {
     return {
+      url: "http://127.0.0.1:8090/api/estadistica/",
+      estadisticas: {},
       options: {
         chart: {
-          id: "vuechart-example"
+          id: "PeliculaMasReservada"
         },
         xaxis: {
           categories: [
@@ -45,7 +47,7 @@ export default {
       ],
       options1: {
         chart: {
-          id: "vuechart-example2"
+          id: "HorarioMasPopular"
         },
         xaxis: {
           categories: [
@@ -62,6 +64,22 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    // obtenerEstadisticas() {
+    //   axios
+    //     .get(this.url)
+    //     .then(response => {
+    //       this.estadisticas = response.data;
+    //       this.estadisticas.PeliculaMasReservada.forEach(element => {
+    //       this.optionsPeliculaMasReservada.xaxis.categories.push(element.Pelicula);
+    //       this.seriesPeliculaMasReservada[0].data.push(element.CantidadReservas);
+    //     });
+    //     })
+    //     .catch(e => {
+    //       console.log(e);
+    //     });
+    // }
   }
 };
 </script>
