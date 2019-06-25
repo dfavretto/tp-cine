@@ -17,7 +17,7 @@
 
         <b-link
 			class="btn btn-primary"
-			v-for="(funcion, index) in funciones"
+			v-for="(funcion, index) in filtrarHorarios(pelicula.titulo)"
 			v-bind:key="index"
 			to="/sala">{{funcion.horario}}</b-link>
       </b-card>
@@ -58,14 +58,14 @@ export default {
 				console.log(e);
 			})
 	},
-    tieneHorarios(peliculaId) {
-		if(__.find(funciones, function(func) {
-				return func.peliculaId == pelicula.titulo;
-			})) {
-				return true;
+    filtrarHorarios(peliculaId) {
+		const horariosFiltrados = [];
+		for (const funcion of this.funciones) {
+			if (funcion.peliculaId == peliculaId) {
+				horariosFiltrados.push(funcion);
 			}
-		return false;
-	//   return this.urlFuncion.replace(":peliculaId", peliculaId);
+		}
+		return horariosFiltrados;
 	}
   },
   mounted() {
