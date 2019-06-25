@@ -1,159 +1,114 @@
 <template>
-    <div class="theatre">
-  
-  <div class="cinema-seats left">
-    <div class="cinema-row row-1">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
+  <div class="cine">
+    <div id="pantalla">
+      <b-jumbotron text-variant="white" style="background: transparent !important">
+        Pantalla
+      </b-jumbotron>
     </div>
-
-    <div class="cinema-row row-2">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-3">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-4">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-5">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-6">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-7">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
+    <div id="asientos">
+      <b-button-group size="sm">
+        <b-button
+          v-for="(btn, idx) in buttons"
+          :key="idx"
+          :pressed.sync="btn.state"
+          variant="danger"
+        >{{ btn.caption }}</b-button>
+      </b-button-group>
     </div>
   </div>
-
-
-  <div class="cinema-seats right">
-    <div class="cinema-row row-1">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-2">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-3">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-4">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-5">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-6">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-7">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-  </div>
+  <!-- <div class="theatre">
   
-</div>
+      <div class="cinema-seats left">
+        <div class="cinema-row row-1">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+
+        <div class="cinema-row row-2">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+
+        <div class="cinema-row row-3">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+
+        <div class="cinema-row row-4">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+
+        <div class="cinema-row row-5">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+
+        <div class="cinema-row row-6">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+
+        <div class="cinema-row row-7">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+      </div>
+  
+  </div>-->
 </template>
 
 <script>
-
-
 export default {
-  name: "app"
+  data() {
+    return {
+      buttons: [
+        { caption: "Asiento 1", state: false },
+        { caption: "Asiento 2", state: false },
+        { caption: "Asiento 3", state: false },
+        { caption: "Asiento 4", state: false },
+        { caption: "Asiento 5", state: false },
+        { caption: "Asiento 6", state: false },
+        { caption: "Asiento 7", state: false },
+        { caption: "Asiento 8", state: false }
+      ]
+    };
+  }
 };
 /*
 $('.cinema-seats .seat').on('click', function() {
@@ -164,9 +119,25 @@ $('.cinema-seats .seat').on('click', function() {
 
 
 
-<style>body {
+<style>
+#pantalla {
+    position: relative;
+    margin-top: 2%;
+    left: 25%;
+    width: 50%;
+    height: 70%;
+    background-color: black;
+    color: black;
+}
+#asientos {
+    margin-top: 2%;
+    width: 50%;
+    left: 25%;
+    position: relative;
+    
+}
+body {
   margin: 60px;
-  
 }
 .theatre {
   display: flex;
@@ -182,21 +153,21 @@ $('.cinema-seats .seat').on('click', function() {
   cursor: pointer;
 }
 .cinema-seats .seat:hover:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 7px;
 }
 .cinema-seats .seat.active:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 7px;
 }
 .left .cinema-row {
@@ -207,11 +178,20 @@ $('.cinema-seats .seat').on('click', function() {
   width: 35px;
   height: 50px;
   border-radius: 7px;
-  background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #b54041, #f3686a);
+  background: linear-gradient(
+    to top,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #b54041,
+    #f3686a
+  );
   margin-bottom: 10px;
   transform: skew(20deg);
   margin-top: -32px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .left .row-2 {
   transform: skew(-13deg);
@@ -260,11 +240,20 @@ $('.cinema-seats .seat').on('click', function() {
   width: 35px;
   height: 50px;
   border-radius: 7px;
-  background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #b54041, #f3686a);
+  background: linear-gradient(
+    to top,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #761818,
+    #b54041,
+    #f3686a
+  );
   margin-bottom: 10px;
   transform: skew(-8deg);
   margin-top: -32px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .right .row-2 {
   transform: skew(9deg);
@@ -302,5 +291,4 @@ $('.cinema-seats .seat').on('click', function() {
 .right .row-7 .seat {
   transform: skew(-20deg);
 }
-
 </style>

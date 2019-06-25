@@ -1,7 +1,9 @@
+  /* eslint-disable */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
+import __ from "lodash";
 
 //Gráficos APEX
 import VueApexCharts from 'vue-apexcharts'
