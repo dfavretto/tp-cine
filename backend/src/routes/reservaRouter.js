@@ -1,7 +1,7 @@
 const express = require('express');
 const _ = require('lodash');
 const daoFactory = require('../data/daoFactory');
-
+const Joi = require('@hapi/joi');
 const router = express.Router();
 const baseURI = '/api/reserva';
 
@@ -118,6 +118,18 @@ router.post('/', async (req, res) => {
         res.status(err.status).json(err);
     }
 });
+
+function validarReserva(reserva) {
+    const schema = {
+        id: Joi.string().alphanum().min(1).required(),
+        email: Joi.string().alphanum().min(1).required(),
+        cantAsientos: Joi.string().alphanum().min(1).required(),
+        funcion: Joi.string().alphanum().min(1).required(),
+    }
+
+    const { error } = Joi.validate(reserva, schema);
+    return error
+}
 
 module.exports = {
     getAll,
