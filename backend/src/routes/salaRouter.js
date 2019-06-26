@@ -17,6 +17,33 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:funcionId', async (req, res) => {
+    console.log(`GETTING: ${baseURI}${req.url}`);
+    try {
+        const resultado = await getByFuncion(req.params.funcionId);
+
+        if (!resultado || resultado.length === 0) {
+            throw { status: 404, descripcion: 'sala no encontrada' };
+        }
+
+        res.json(resultado);
+    } catch (err) {
+        res.status(err.status).json(err);
+    }
+    
+});
+
+async function getByFuncion(funcionId){
+    try {
+        const salasDAO = daoFactory.getSalasDAO();
+        const resultado = await salasDAO.getByFuncion(funcionId);
+
+        return resultado;
+    } catch (err) {
+        throw err;
+    }
+}
+
 async function _handleGetAll(req, res) {
     try {
         const salaDAO = daoFactory.getSalasDAO();
