@@ -112,7 +112,7 @@ router.post('/', async (req, res) => {
         }
 
         const reservaDAO = daoFactory.getReservasDAO();
-        const nuevaReserva = await reservaDAO.add(reserva);
+        const nuevaReserva = await reservaDAO.postReserva(reserva);
         res.status(201).json(nuevaReserva);
     } catch (err) {
         res.status(err.status).json(err);

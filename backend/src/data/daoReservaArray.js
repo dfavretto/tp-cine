@@ -28,6 +28,10 @@ async function getById(email, id) {
     return filterById(filterByEmail(reservas, email), id);
 }
 
+async function postReserva(reserva) {
+    reservas.push(reserva);
+}
+
 function filterByEmail(elems, val) {
     const result = [];
     for (const elem of elems) {
@@ -52,5 +56,6 @@ function filterById(elems, val) {
 module.exports = {
     getAll,
     getByEmail,
-    getById
+    getById,
+    postReserva
 }
