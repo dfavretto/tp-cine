@@ -1,9 +1,7 @@
 <template>
   <div class="cine">
     <div id="pantalla">
-      <b-jumbotron text-variant="white" style="background: transparent !important">
-        Pantalla
-      </b-jumbotron>
+      <b-jumbotron text-variant="white" style="background: transparent !important">Pantalla</b-jumbotron>
     </div>
     <div id="asientos">
       <b-button-group size="sm">
@@ -97,6 +95,8 @@
 export default {
   data() {
     return {
+      name: "sala",
+      urlSala: "http://127.0.0.1:8090/api/sala/",
       buttons: [
         { caption: "Asiento 1", state: false },
         { caption: "Asiento 2", state: false },
@@ -107,38 +107,56 @@ export default {
         { caption: "Asiento 7", state: false },
         { caption: "Asiento 8", state: false }
       ],
+      dataSala: {},
+      asientos: [],
       funcionId: 0
     };
   },
-  created() {
-      this.funcionId = this.$route.params.funcionId;
+
+  obtenerSala() {
+    axios.get(this.urlSala + funcionId).then(response => {
+      this.dataSala = response.data;
+      this.asientos = this.dataSala.butacas;
+      this.asientos
+        .forEach((asiento, index) => {
+          this.buttons.push({
+            caption: `Asiento ${index}`,
+            state: asiento
+          });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    });
   },
+
+  mounted() {
+    this.obtenerSala();
+  },
+
+  created() {
+    this.funcionId = this.$route.params.funcionId;
+  }
 };
-/*
-$('.cinema-seats .seat').on('click', function() {
-  $(this).toggleClass('active');
-});
-*/
 </script>
 
 
 
 <style>
 #pantalla {
-    position: relative;
-    margin-top: 2%;
-    left: 25%;
-    width: 50%;
-    height: 70%;
-    background-color: black;
-    color: black;
+  position: relative;
+  margin-top: 2%;
+  left: 25%;
+  width: 50%;
+  height: 70%;
+  background-color: black;
+  color: black;
 }
 #asientos {
-    margin-top: 2%;
-    width: 50%;
-    left: 25%;
-    position: relative;
-    
+  margin-top: 2%;
+  width: 50%;
+  left: 25%;
+  position: relative;
 }
 body {
   margin: 60px;

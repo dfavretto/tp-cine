@@ -1,6 +1,7 @@
 class Sala {
-    constructor(numero) {
-        this.numero = numero;
+    constructor(id, funcionId) {
+        this.id = id;
         this.butacas = new Array (8);
+        this.funcionId = funcionId;
     }
 }
