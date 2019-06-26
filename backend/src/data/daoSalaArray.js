@@ -1,11 +1,11 @@
 const Sala = require('../models/sala').Sala;
 
 const salas = [
-    new Sala(0, 2),
+    new Sala(0, 1),
     new Sala(1, 3),
-    new Sala(2, 4),
-    new Sala(3, 5),
-    new Sala(4, 6)
+    new Sala(2, 0),
+    new Sala(3, 4),
+    new Sala(4, 2)
 ];
 
 async function getAll() {

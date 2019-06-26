@@ -111,6 +111,8 @@ router.post('/', async (req, res) => {
             throw { status: 400, descripcion: 'La reserva no existe' };
         }
 
+        const salaDAO = daoFactory.getSalaDAO();
+        salaDAO.edit(reserva.sala);
         const reservaDAO = daoFactory.getReservasDAO();
         const nuevaReserva = await reservaDAO.postReserva(reserva);
         res.status(201).json(nuevaReserva);

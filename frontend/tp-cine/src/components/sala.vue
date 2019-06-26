@@ -13,48 +13,71 @@
         >{{ btn.caption }}</b-button>
       </b-button-group>
     </div>
+    <div id="formulario">
+      <b-form @submit="onSubmit">
+        <b-form-input
+          id="input-1"
+          v-model="form.email"
+          type="email"
+          required
+          placeholder="Enter email"
+        ></b-form-input>
+        <b-button type="submit" variant="primary">Submit</b-button>
+      </b-form>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  /* eslint-disable */
   data() {
     return {
+      form: {
+        email: ""
+      },
       name: "sala",
       urlSala: "http://127.0.0.1:8090/api/sala/",
-      buttons: [
-        { caption: "Asiento 1", state: false },
-        { caption: "Asiento 2", state: false },
-        { caption: "Asiento 3", state: false },
-        { caption: "Asiento 4", state: false },
-        { caption: "Asiento 5", state: false },
-        { caption: "Asiento 6", state: false },
-        { caption: "Asiento 7", state: false },
-        { caption: "Asiento 8", state: false }
-      ],
+      urlReserva: "http://127.0.0.1:8090/api/reserva",
+      buttons: [],
       dataSala: {},
       asientos: [],
       funcionId: 0
     };
   },
-
-  obtenerSala() {
-    axios.get(this.urlSala + funcionId).then(response => {
-      this.dataSala = response.data;
-      this.asientos = this.dataSala.butacas;
-      this.asientos
-        .forEach((asiento, index) => {
-          this.buttons.push({
-            caption: `Asiento ${index}`,
-            state: asiento
-          });
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    });
-  },
-
+	methods: {
+		onSubmit(evt) {
+		evt.preventDefault();
+		this.buttons.forEach((button, index) => {
+			this.dataSala.butacas[index] = button.state;
+		});
+		axios
+			.post(this.urlReserva, {
+				id: 0,
+				email: this.form.email,
+				cantAsientos: 2,
+				funcion: this.funcionId,
+				sala: this.dataSala
+			})
+		alert(JSON.stringify(this.form))
+		},
+		obtenerSala() {
+			axios.get(this.urlSala + this.funcionId)
+				.then(response => {
+					this.dataSala = response.data[0];
+					// this.asientos = this.dataSala.butacas;
+					this.dataSala.butacas.forEach((asiento, index) => {
+						this.buttons.push({
+						caption: `Asiento ${index}`,
+						state: asiento
+						});
+					})
+				})
+				.catch(e => {
+					console.log(e);
+				});
+		}
+    },
   mounted() {
     this.obtenerSala();
   },
@@ -68,6 +91,9 @@ export default {
 
 
 <style>
+#formulario {
+  margin-top: 2%;
+}
 #pantalla {
   position: relative;
   margin-top: 2%;
