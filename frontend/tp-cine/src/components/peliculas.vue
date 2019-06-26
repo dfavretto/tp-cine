@@ -32,6 +32,7 @@ export default {
 		name: "peliculas",
 		urlPelicula: "http://127.0.0.1:8090/api/pelicula",
 		urlFuncion: "http://127.0.0.1:8090/api/funcion/",
+		urlReserva: "http://127.0.0.1:8090/api/reserva/",
 		peliculas: [],
 		funciones: []
     };
@@ -66,7 +67,25 @@ export default {
 			}
 		}
 		return horariosFiltrados;
-	}
+	},
+	pruebaPost() {
+		axios
+			.post(this.urlReserva, {
+				"id": 6,
+				"email": "jeremias.hsn@gmail.com",
+				"cantAsientos": 7,
+				"funcion": {
+					"id": 8,
+					"horario": "17:54"
+				}
+			})
+			.then(response => {
+				console.log(response);
+			})
+			.catch(e => {
+				console.log(e);
+			})
+	},
   },
   mounted() {
     this.listarPeliculas();
