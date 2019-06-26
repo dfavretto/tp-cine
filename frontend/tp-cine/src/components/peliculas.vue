@@ -19,7 +19,7 @@
 			class="btn btn-primary"
 			v-for="(funcion, index) in filtrarHorarios(pelicula.titulo)"
 			v-bind:key="index"
-			to="/sala">{{funcion.horario}}</b-link>
+			:to="{ name: 'sala', params: { funcionId: funcion.id } }">{{funcion.horario}}</b-link>
       </b-card>
     </b-card-group>
   </div>
@@ -90,6 +90,7 @@ export default {
   mounted() {
     this.listarPeliculas();
     this.listarHorarios();
+    this.pruebaPost();
   }
 };
 </script>

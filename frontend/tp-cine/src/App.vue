@@ -24,6 +24,7 @@
 import home from "./components/home.vue";
 
 export default {
+  /* eslint-disable */
   name: "app",
   components: {
     home

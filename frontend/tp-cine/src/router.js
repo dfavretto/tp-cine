@@ -13,7 +13,7 @@ export default new Router({
             component: () => import('./components/peliculas.vue')
         },
         {
-            path: '/sala',
+            path: '/sala/:funcionId',
             name: 'sala',
             component: () => import('./components/sala.vue')
         },

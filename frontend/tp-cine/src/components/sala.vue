@@ -106,9 +106,13 @@ export default {
         { caption: "Asiento 6", state: false },
         { caption: "Asiento 7", state: false },
         { caption: "Asiento 8", state: false }
-      ]
+      ],
+      funcionId: 0
     };
-  }
+  },
+  created() {
+      this.funcionId = this.$route.params.funcionId;
+  },
 };
 /*
 $('.cinema-seats .seat').on('click', function() {
