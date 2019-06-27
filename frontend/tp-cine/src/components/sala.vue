@@ -51,15 +51,16 @@ export default {
 		this.buttons.forEach((button, index) => {
 			this.dataSala.butacas[index] = button.state;
 		});
-		axios
-			.post(this.urlReserva, {
+		const reserva = {
 				id: 0,
 				email: this.form.email,
 				cantAsientos: 2,
 				funcion: this.funcionId,
 				sala: this.dataSala
-			})
-		alert(JSON.stringify(this.form))
+			};
+		axios
+			.post(this.urlReserva, reserva)
+		alert(JSON.stringify(reserva))
 		},
 		obtenerSala() {
 			axios.get(this.urlSala + this.funcionId)

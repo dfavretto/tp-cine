@@ -67,30 +67,30 @@ export default {
 			}
 		}
 		return horariosFiltrados;
-	},
-	pruebaPost() {
-		axios
-			.post(this.urlReserva, {
-				"id": 6,
-				"email": "jeremias.hsn@gmail.com",
-				"cantAsientos": 7,
-				"funcion": {
-					"id": 8,
-					"horario": "17:54"
-				}
-			})
-			.then(response => {
-				console.log(response);
-			})
-			.catch(e => {
-				console.log(e);
-			})
-	},
+	}
+	// pruebaPost() {
+	// 	axios
+	// 		.post(this.urlReserva, {
+	// 			"id": 6,
+	// 			"email": "jeremias.hsn@gmail.com",
+	// 			"cantAsientos": 7,
+	// 			"funcion": {
+	// 				"id": 8,
+	// 				"horario": "17:54"
+	// 			}
+	// 		})
+	// 		.then(response => {
+	// 			console.log(response);
+	// 		})
+	// 		.catch(e => {
+	// 			console.log(e);
+	// 		})
+	// },
   },
   mounted() {
     this.listarPeliculas();
     this.listarHorarios();
-    this.pruebaPost();
+    // this.pruebaPost();
   }
 };
 </script>

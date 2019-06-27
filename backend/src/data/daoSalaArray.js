@@ -17,8 +17,14 @@ async function getByFuncion(funcionId) {
 }
 
 async function edit(sala) {
-    const salaFound = filterById(salas, sala.id)[0];
-    salaFound.butacas = sala.butacas;
+    console.log(JSON.stringify(sala));
+    salas.forEach((salaFound, index) => {
+        if (salaFound.funcionId == sala.funcionId) {
+            salaFound.butacas = sala.butacas;            
+        }
+    });
+    console.log(JSON.stringify(salas[2]));
+    // const salaFound = filterById(salas, sala.id)[0];
     return true;
 }
 
@@ -43,6 +49,7 @@ function filterById(elems, val) {
 }
 
 module.exports = {
+    edit,
     getAll,
     getByFuncion
 }
