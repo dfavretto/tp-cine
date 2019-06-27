@@ -10,6 +10,7 @@
           :key="idx"
           :pressed.sync="btn.state"
           variant="danger"
+          :disabled="dataSala.butacas[idx]"
         >{{ btn.caption }}</b-button>
       </b-button-group>
     </div>
@@ -45,40 +46,40 @@ export default {
       funcionId: 0
     };
   },
-	methods: {
-		onSubmit(evt) {
-		evt.preventDefault();
-		this.buttons.forEach((button, index) => {
-			this.dataSala.butacas[index] = button.state;
-		});
-		const reserva = {
-				id: 0,
-				email: this.form.email,
-				cantAsientos: 2,
-				funcion: this.funcionId,
-				sala: this.dataSala
-			};
-		axios
-			.post(this.urlReserva, reserva)
-		alert(JSON.stringify(reserva))
-		},
-		obtenerSala() {
-			axios.get(this.urlSala + this.funcionId)
-				.then(response => {
-					this.dataSala = response.data[0];
-					// this.asientos = this.dataSala.butacas;
-					this.dataSala.butacas.forEach((asiento, index) => {
-						this.buttons.push({
-						caption: `Asiento ${index}`,
-						state: asiento
-						});
-					})
-				})
-				.catch(e => {
-					console.log(e);
-				});
-		}
+  methods: {
+    onSubmit(evt) {
+      evt.preventDefault();
+      this.buttons.forEach((button, index) => {
+        this.dataSala.butacas[index] = button.state;
+      });
+      const reserva = {
+        id: 0,
+        email: this.form.email,
+        cantAsientos: 2,
+        funcion: this.funcionId,
+        sala: this.dataSala
+      };
+      axios.post(this.urlReserva, reserva);
+      alert(JSON.stringify(reserva));
     },
+    obtenerSala() {
+      axios
+        .get(this.urlSala + this.funcionId)
+        .then(response => {
+          this.dataSala = response.data[0];
+          // this.asientos = this.dataSala.butacas;
+          this.dataSala.butacas.forEach((asiento, index) => {
+            this.buttons.push({
+              caption: `Asiento ${index}`,
+              state: asiento
+            });
+          });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  },
   mounted() {
     this.obtenerSala();
   },
