@@ -61,6 +61,7 @@ export default {
       };
       axios.post(this.urlReserva, reserva);
       alert(JSON.stringify(reserva));
+      this.$router.push({ name: 'peliculas' })
     },
     obtenerSala() {
       axios
